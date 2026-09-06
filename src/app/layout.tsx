@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
+import { MotionConfig } from 'motion/react';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Novi | A modern workspace and task maanagement tool',
+  title: 'Novi | A modern workspace and task management tool',
   description:
     'Novi brings tasks, docs, and conversations into one calm workspace built for small, fast moving teams.',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
@@ -32,7 +30,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#faf8ff] text-[#131b2e] antialiased selection:bg-primary selection:text-white">
-        {children}
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
       </body>
     </html>
   );

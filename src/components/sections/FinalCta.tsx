@@ -37,7 +37,10 @@ export const FinalCta: React.FC<FinalCtaProps> = ({
             className="shadow-[0_12px_28px_rgba(79,70,229,0.5)] hover:shadow-[0_16px_32px_rgba(79,70,229,0.6)]"
           >
             <span>Start building with Novi</span>
-            <span className="material-symbols-outlined text-[18px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[18px]"
+            >
               arrow_forward
             </span>
           </Button>
@@ -52,19 +55,28 @@ export const FinalCta: React.FC<FinalCtaProps> = ({
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-[#eef0ff]/70 text-xs sm:text-sm font-medium">
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[#6ffbbe] text-[18px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#6ffbbe] text-[18px]"
+            >
               check
             </span>
             Unlimited tasks
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[#6ffbbe] text-[18px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#6ffbbe] text-[18px]"
+            >
               check
             </span>
             Realtime sync
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[#6ffbbe] text-[18px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#6ffbbe] text-[18px]"
+            >
               check
             </span>
             Cancel anytime

@@ -120,6 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               alt="Novi Brand Logo"
               className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
               height={64}
+              priority
               src={NOVI_LOGO_URL}
               unoptimized
               width={64}
@@ -156,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         <div className="flex items-center gap-3">
           <Button
-            id="hero-secondary-cta"
+            id="nav-login-btn"
             variant="secondary"
             size="md"
             onClick={() => onOpenAuth('login')}

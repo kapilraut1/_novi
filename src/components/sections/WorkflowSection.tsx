@@ -23,7 +23,10 @@ export const WorkflowSection: React.FC = () => {
               01
             </span>
             <span className="w-10 h-10 rounded-full bg-[#e2dfff] text-[#3525cd] flex items-center justify-center font-bold">
-              <span className="material-symbols-outlined text-[20px]">
+              <span
+                aria-hidden="true"
+                className="material-symbols-outlined text-[20px]"
+              >
                 lightbulb
               </span>
             </span>
@@ -36,7 +39,10 @@ export const WorkflowSection: React.FC = () => {
             without bureaucratic sprint overhead.
           </p>
           <div className="mt-6 p-2.5 rounded-lg bg-[#f2f3ff] font-['JetBrains_Mono'] text-xs text-[#464555] flex items-center gap-2 border border-[#eaedff]">
-            <span className="material-symbols-outlined text-[#3525cd] text-[15px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#3525cd] text-[15px]"
+            >
               bolt
             </span>
             <span>Instant spec generation via templates</span>
@@ -49,7 +55,10 @@ export const WorkflowSection: React.FC = () => {
               02
             </span>
             <span className="w-10 h-10 rounded-full bg-[#e0e0ff] text-[#4953bc] flex items-center justify-center font-bold">
-              <span className="material-symbols-outlined text-[20px]">
+              <span
+                aria-hidden="true"
+                className="material-symbols-outlined text-[20px]"
+              >
                 diversity_3
               </span>
             </span>
@@ -62,7 +71,10 @@ export const WorkflowSection: React.FC = () => {
             directly to the deliverable itself.
           </p>
           <div className="mt-6 p-2.5 rounded-lg bg-[#f2f3ff] font-['JetBrains_Mono'] text-xs text-[#464555] flex items-center gap-2 border border-[#eaedff]">
-            <span className="material-symbols-outlined text-[#4953bc] text-[15px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#4953bc] text-[15px]"
+            >
               chat_bubble
             </span>
             <span>Zero context-loss across handoffs</span>
@@ -75,7 +87,10 @@ export const WorkflowSection: React.FC = () => {
               03
             </span>
             <span className="w-10 h-10 rounded-full bg-[#6ffbbe]/40 text-[#005338] flex items-center justify-center font-bold">
-              <span className="material-symbols-outlined text-[20px]">
+              <span
+                aria-hidden="true"
+                className="material-symbols-outlined text-[20px]"
+              >
                 rocket_launch
               </span>
             </span>
@@ -88,7 +103,10 @@ export const WorkflowSection: React.FC = () => {
             with total stakeholder visibility.
           </p>
           <div className="mt-6 p-2.5 rounded-lg bg-[#f2f3ff] font-['JetBrains_Mono'] text-xs text-[#464555] flex items-center gap-2 border border-[#eaedff]">
-            <span className="material-symbols-outlined text-[#005338] text-[15px]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[#005338] text-[15px]"
+            >
               verified
             </span>
             <span>Automated changelog generation</span>

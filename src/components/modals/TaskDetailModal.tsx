@@ -40,7 +40,12 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
             )}
           </div>
           <IconButton label="Close task detail modal" onClick={onClose}>
-            <span className="material-symbols-outlined text-[20px]">close</span>
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[20px]"
+            >
+              close
+            </span>
           </IconButton>
         </div>
 

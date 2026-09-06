@@ -75,7 +75,12 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
             </h3>
           </div>
           <IconButton label="Close new task modal" onClick={onClose}>
-            <span className="material-symbols-outlined text-[20px]">close</span>
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[20px]"
+            >
+              close
+            </span>
           </IconButton>
         </div>
 

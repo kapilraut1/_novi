@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Image from 'next/image';
 import { NOVI_LOGO_URL } from '@/lib/data/initial-data';
 
@@ -27,7 +27,7 @@ export const IntegrationsSection: React.FC = () => {
       name: 'Sheets & CSV',
       note: 'Instant map',
       icon: 'table_chart',
-      color: 'text-[#777587]',
+      color: 'text-[#666577]',
     },
   ];
 
@@ -74,7 +74,12 @@ export const IntegrationsSection: React.FC = () => {
 
         <div className="relative w-full max-w-4xl py-8 flex items-center justify-center">
           <div className="hidden md:block absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full text-[#c7c4d8]/50" fill="none">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              className="w-full h-full text-[#c7c4d8]/50"
+              fill="none"
+            >
               <line
                 x1="20%"
                 y1="20%"
@@ -163,6 +168,7 @@ export const IntegrationsSection: React.FC = () => {
                   }`}
                 >
                   <span
+                    aria-hidden="true"
                     className={`material-symbols-outlined text-[20px] ${item.color}`}
                   >
                     {item.icon}
@@ -195,6 +201,7 @@ export const IntegrationsSection: React.FC = () => {
                   }`}
                 >
                   <span
+                    aria-hidden="true"
                     className={`material-symbols-outlined text-[20px] ${item.color}`}
                   >
                     {item.icon}

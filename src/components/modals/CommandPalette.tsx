@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { TaskItem, Project } from '@/types';
 
 interface CommandPaletteProps {
@@ -83,7 +83,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#eaedff]">
-          <span className="material-symbols-outlined text-[#3525cd] text-[22px]">
+          <span
+            aria-hidden="true"
+            className="material-symbols-outlined text-[#3525cd] text-[22px]"
+          >
             search
           </span>
           <input
@@ -92,7 +95,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a command or search tasks, specs, team..."
-            className="flex-1 text-sm sm:text-base text-[#131b2e] placeholder:text-[#777587] focus:outline-none bg-transparent"
+            className="flex-1 text-sm sm:text-base text-[#131b2e] placeholder:text-[#666577] focus:outline-none focus:ring-2 focus:ring-[#3525cd]/60 rounded-lg bg-transparent"
           />
           <button
             onClick={onClose}
@@ -114,7 +117,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#eaedff] text-left text-xs sm:text-sm text-[#131b2e] font-semibold transition-colors cursor-pointer"
           >
             <span className="w-7 h-7 rounded bg-[#3525cd] text-white flex items-center justify-center">
-              <span className="material-symbols-outlined text-[16px]">add</span>
+              <span
+                aria-hidden="true"
+                className="material-symbols-outlined text-[16px]"
+              >
+                add
+              </span>
             </span>
             <span>Create new task in Sprint 34</span>
             <span className="ml-auto font-['JetBrains_Mono'] text-[11px] text-[#464555]">
@@ -136,7 +144,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   }}
                   className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f2f3ff] text-left text-xs sm:text-sm text-[#131b2e] transition-colors cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-[18px] text-[#3525cd]">
+                  <span
+                    aria-hidden="true"
+                    className="material-symbols-outlined text-[18px] text-[#3525cd]"
+                  >
                     {cmd.icon}
                   </span>
                   <span>{cmd.title}</span>

@@ -5,7 +5,10 @@ const brands = [
     key: 'kinetic',
     content: (
       <div className="flex items-center gap-1.5 font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#131b2e] hover:text-[#3525cd] transition-colors cursor-default">
-        <span className="material-symbols-outlined text-[20px] text-[#3525cd]">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined text-[20px] text-[#3525cd]"
+        >
           speed
         </span>
         <span className="font-extrabold tracking-widest">KINETIC</span>
@@ -16,7 +19,10 @@ const brands = [
     key: 'voxellabs',
     content: (
       <div className="flex items-center gap-1 font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#131b2e] hover:text-[#3525cd] transition-colors cursor-default">
-        <span className="material-symbols-outlined text-[18px]">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined text-[18px]"
+        >
           view_in_ar
         </span>
         <span className="font-semibold tracking-tight">
@@ -38,7 +44,12 @@ const brands = [
     key: 'monolith',
     content: (
       <div className="flex items-center gap-1.5 font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#131b2e] uppercase tracking-widest font-black hover:text-[#3525cd] transition-colors cursor-default">
-        <span className="material-symbols-outlined text-[18px]">layers</span>
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined text-[18px]"
+        >
+          layers
+        </span>
         <span>MONOLITH</span>
       </div>
     ),
@@ -47,7 +58,10 @@ const brands = [
     key: 'prismstudio',
     content: (
       <div className="flex items-center gap-1.5 font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#131b2e] hover:text-[#3525cd] transition-colors cursor-default">
-        <span className="material-symbols-outlined text-[18px]">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined text-[18px]"
+        >
           filter_vintage
         </span>
         <span className="font-semibold">
@@ -60,7 +74,10 @@ const brands = [
     key: 'hyperscale',
     content: (
       <div className="flex items-center gap-1 font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#131b2e] font-extrabold tracking-tight hover:text-[#3525cd] transition-colors cursor-default">
-        <span className="material-symbols-outlined text-[#3525cd] text-[20px]">
+        <span
+          aria-hidden="true"
+          className="material-symbols-outlined text-[#3525cd] text-[20px]"
+        >
           expand
         </span>
         <span>HyperScale</span>

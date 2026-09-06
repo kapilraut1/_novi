@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+﻿@import 'tailwindcss';
 
 @theme {
   --color-primary: #3525cd;
@@ -30,7 +30,7 @@
   --color-inverse-on-surface: #eef0ff;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
-  --color-outline: #777587;
+  --color-outline: #666577;
   --color-outline-variant: #c7c4d8;
   --color-background: #faf8ff;
   --color-on-background: #131b2e;
@@ -67,8 +67,12 @@
 }
 
 @keyframes logo-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-logo-scroll {

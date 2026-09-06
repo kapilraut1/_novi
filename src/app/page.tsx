@@ -156,19 +156,6 @@ export default function Page() {
 
           <main id="main-content" className="w-full flex flex-col">
             <Hero
-              tasks={tasks}
-              projects={projects}
-              activeProjectId={activeProjectId}
-              onSelectProject={setActiveProjectId}
-              activeView={activeView}
-              onSelectView={(v) => {
-                setActiveView(v);
-                const el = document.getElementById('preview');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-              onOpenNewTaskModal={() => setIsNewTaskModalOpen(true)}
-              onSelectTask={(task) => setSelectedTask(task)}
               onOpenVideoTour={() => setIsVideoTourOpen(true)}
               onOpenWorkspace={() => setIsWorkspaceOpen(true)}
             />

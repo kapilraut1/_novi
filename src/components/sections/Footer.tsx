@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -340,7 +340,7 @@ export const Footer: React.FC = () => {
                       aria-describedby={
                         fieldError ? 'newsletter-error-message' : undefined
                       }
-                      className={`w-full px-4 py-2.5 rounded-xl bg-white text-[#131b2e] placeholder:text-[#777587] text-xs sm:text-sm shadow-2xs border transition-all focus:outline-none focus:ring-2 ${
+                      className={`w-full px-4 py-2.5 rounded-xl bg-white text-[#131b2e] placeholder:text-[#666577] text-xs sm:text-sm shadow-2xs border transition-all focus:outline-none focus:ring-2 ${
                         fieldError
                           ? 'border-[#ba1a1a] focus:ring-[#ffdad6]'
                           : 'border-[#eaedff] focus:ring-[#3525cd] focus:border-transparent'

@@ -63,7 +63,12 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
             onClick={onClose}
             className="absolute top-6 right-6 text-white/70 hover:text-white"
           >
-            <span className="material-symbols-outlined text-[24px]">close</span>
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined text-[24px]"
+            >
+              close
+            </span>
           </IconButton>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-['JetBrains_Mono'] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#4edea3] animate-pulse" />
@@ -80,7 +85,10 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
         <div className="p-6 sm:p-8">
           <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#f2f3ff] border border-[#eaedff] mb-6">
             <div className="w-12 h-12 rounded-xl bg-[#3525cd] text-white flex items-center justify-center shrink-0 shadow-md">
-              <span className="material-symbols-outlined text-[28px]">
+              <span
+                aria-hidden="true"
+                className="material-symbols-outlined text-[28px]"
+              >
                 {current.icon}
               </span>
             </div>
@@ -97,7 +105,10 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
                 {current.desc}
               </p>
               <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#005338]">
-                <span className="material-symbols-outlined text-[16px]">
+                <span
+                  aria-hidden="true"
+                  className="material-symbols-outlined text-[16px]"
+                >
                   check_circle
                 </span>
                 <span>{current.highlight}</span>

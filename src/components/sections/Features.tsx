@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion, type Variants } from 'motion/react';
 import { Kanban, MessageSquare, Calendar, ArrowLeftRight } from 'lucide-react';
 
@@ -26,7 +26,7 @@ function BoardsVisual() {
     >
       <div className="flex items-center justify-between px-0.5">
         <span className="text-[10px] font-bold text-[#131b2e]">Sprint 34</span>
-        <span className="font-['JetBrains_Mono'] text-[10px] text-[#777587]">
+        <span className="font-['JetBrains_Mono'] text-[10px] text-[#666577]">
           12 tasks
         </span>
       </div>
@@ -35,7 +35,7 @@ function BoardsVisual() {
           <span className="px-1.5 py-0.5 rounded bg-[#ffdad6] text-[#ba1a1a] text-[8px] font-extrabold tracking-wider">
             P0 CRITICAL
           </span>
-          <span className="font-['JetBrains_Mono'] text-[9px] text-[#777587]">
+          <span className="font-['JetBrains_Mono'] text-[9px] text-[#666577]">
             NOV-102
           </span>
         </div>
@@ -53,7 +53,7 @@ function BoardsVisual() {
           <span className="px-1.5 py-0.5 rounded bg-[#eaedff] text-[#464555] text-[8px] font-extrabold tracking-wider">
             P1 NORMAL
           </span>
-          <span className="font-['JetBrains_Mono'] text-[9px] text-[#777587]">
+          <span className="font-['JetBrains_Mono'] text-[9px] text-[#666577]">
             NOV-111
           </span>
         </div>
@@ -85,7 +85,7 @@ function ThreadsVisual() {
             <span className="text-[10px] font-bold text-[#131b2e]">
               Jared K.
             </span>
-            <span className="font-['JetBrains_Mono'] text-[9px] text-[#777587]">
+            <span className="font-['JetBrains_Mono'] text-[9px] text-[#666577]">
               10:42 AM
             </span>
           </div>
@@ -115,7 +115,7 @@ function TimelineVisual() {
       aria-hidden="true"
       className="rounded-xl bg-[#f2f3ff]/80 border border-[#eaedff] p-3 flex flex-col gap-1.5"
     >
-      <div className="flex justify-between font-['JetBrains_Mono'] text-[9px] text-[#777587] pb-1 border-b border-[#eaedff]/60">
+      <div className="flex justify-between font-['JetBrains_Mono'] text-[9px] text-[#666577] pb-1 border-b border-[#eaedff]/60">
         <span>WK1</span>
         <span>WK2</span>
         <span>WK3</span>
@@ -163,7 +163,7 @@ function ImportVisual() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#005338]" />
             )}
           </div>
-          <span className="font-['JetBrains_Mono'] text-[9px] text-[#777587]">
+          <span className="font-['JetBrains_Mono'] text-[9px] text-[#666577]">
             {tool.desc}
           </span>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { ConversationMessage } from '@/types';
 import { INITIAL_MESSAGES } from '@/lib/data/initial-data';
@@ -108,7 +108,10 @@ export const InteractiveShowcase: React.FC = () => {
                     : 'text-[#464555] hover:text-[#131b2e] hover:bg-[#f2f3ff]'
                 }`}
               >
-                <span className="material-symbols-outlined text-[18px]">
+                <span
+                  aria-hidden="true"
+                  className="material-symbols-outlined text-[18px]"
+                >
                   {tab.icon}
                 </span>
                 <span>{tab.label}</span>
@@ -142,8 +145,18 @@ export const InteractiveShowcase: React.FC = () => {
                     return (
                       <div
                         key={item.id}
+                        role="button"
+                        tabIndex={0}
                         onClick={() => setSelectedTaskIndex(idx)}
-                        className={`p-4 rounded-xl shadow-2xs border transition-all cursor-pointer text-left ${
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setSelectedTaskIndex(idx);
+                          }
+                        }}
+                        aria-pressed={isSelected}
+                        aria-label={item.title}
+                        className={`p-4 rounded-xl shadow-2xs border transition-all cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd] ${
                           isSelected
                             ? 'bg-[#f2f3ff] border-[#3525cd] ring-2 ring-[#c3c0ff]'
                             : 'bg-[#f2f3ff]/60 border-[#eaedff] hover:bg-white hover:border-[#8792fe]'
@@ -267,8 +280,17 @@ export const InteractiveShowcase: React.FC = () => {
                 </div>
 
                 <div
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setSlashCommandOpen(!slashCommandOpen)}
-                  className="p-3.5 rounded-xl bg-[#f2f3ff] shadow-2xs border border-[#eaedff] flex items-center justify-between cursor-pointer hover:border-[#8792fe] transition-all"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSlashCommandOpen(!slashCommandOpen);
+                    }
+                  }}
+                  aria-expanded={slashCommandOpen}
+                  className="p-3.5 rounded-xl bg-[#f2f3ff] shadow-2xs border border-[#eaedff] flex items-center justify-between cursor-pointer hover:border-[#8792fe] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]"
                 >
                   <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs sm:text-sm text-[#3525cd]">
                     <span className="font-bold">/table</span>
@@ -288,10 +310,10 @@ export const InteractiveShowcase: React.FC = () => {
                     </span>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="p-2 rounded bg-[#f2f3ff] hover:bg-[#eaedff] cursor-pointer font-medium">
-                        📊 Live Sprint Velocity Table
+                        Task Management Tool
                       </div>
                       <div className="p-2 rounded bg-[#f2f3ff] hover:bg-[#eaedff] cursor-pointer font-medium">
-                        🎯 OKR Progress Rollup
+                        Analytics Dashboard
                       </div>
                     </div>
                   </div>
@@ -315,7 +337,10 @@ export const InteractiveShowcase: React.FC = () => {
               <div className="max-w-2xl mx-auto w-full flex flex-col gap-4">
                 <div className="flex items-center justify-between pb-2 border-b border-[#eaedff]">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#3525cd] text-[20px]">
+                    <span
+                      aria-hidden="true"
+                      className="material-symbols-outlined text-[#3525cd] text-[20px]"
+                    >
                       tag
                     </span>
                     <span className="font-['Plus_Jakarta_Sans'] text-base sm:text-lg font-bold text-[#131b2e]">
@@ -347,7 +372,7 @@ export const InteractiveShowcase: React.FC = () => {
                           <span className="text-xs sm:text-sm font-bold text-[#131b2e]">
                             {msg.author}
                           </span>
-                          <span className="font-['JetBrains_Mono'] text-[11px] text-[#777587]">
+                          <span className="font-['JetBrains_Mono'] text-[11px] text-[#666577]">
                             {msg.time}
                           </span>
                         </div>

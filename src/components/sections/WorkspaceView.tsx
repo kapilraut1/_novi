@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -44,7 +44,7 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
   });
 
   const columns: { id: TaskStatus; label: string; dotColor: string }[] = [
-    { id: 'backlog', label: 'Backlog', dotColor: 'bg-[#777587]' },
+    { id: 'backlog', label: 'Backlog', dotColor: 'bg-[#666577]' },
     { id: 'in_progress', label: 'In Progress', dotColor: 'bg-[#3525cd]' },
     { id: 'review', label: 'Review', dotColor: 'bg-[#8792fe]' },
     { id: 'done', label: 'Done', dotColor: 'bg-[#005338]' },
@@ -216,7 +216,7 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             <div className="flex flex-col gap-5">
               <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3 rounded-xl border border-[#eaedff] shadow-2xs">
                 <div className="flex items-center gap-2 flex-1 min-w-[220px]">
-                  <span className="material-symbols-outlined text-[#777587] text-[18px]">
+                  <span className="material-symbols-outlined text-[#666577] text-[18px]">
                     filter_alt
                   </span>
                   <input
@@ -224,12 +224,12 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                     value={filterQuery}
                     onChange={(e) => setFilterQuery(e.target.value)}
                     placeholder="Filter cards in Sprint 34..."
-                    className="w-full text-xs text-[#131b2e] placeholder:text-[#777587] bg-transparent focus:outline-none"
+                    className="w-full text-xs text-[#131b2e] placeholder:text-[#666577] bg-transparent focus:outline-none focus:ring-2 focus:ring-[#3525cd]/60 rounded-lg"
                   />
                   {filterQuery && (
                     <button
                       onClick={() => setFilterQuery('')}
-                      className="text-xs text-[#777587] hover:text-[#131b2e]"
+                      className="text-xs text-[#666577] hover:text-[#131b2e]"
                     >
                       Clear
                     </button>
@@ -279,37 +279,42 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                         {colTasks.map((task) => (
                           <div
                             key={task.id}
-                            onClick={() => onSelectTask(task)}
-                            className="bg-white p-3.5 rounded-xl border border-[#eaedff] shadow-2xs hover:shadow-md hover:border-[#8792fe] transition-all cursor-pointer group text-left"
+                            className="bg-white p-3.5 rounded-xl border border-[#eaedff] shadow-2xs hover:shadow-md hover:border-[#8792fe] transition-all group text-left"
                           >
-                            <div className="flex items-center justify-between mb-2">
-                              {task.tag && (
-                                <span className="px-1.5 py-0.5 rounded bg-[#eaedff] font-['JetBrains_Mono'] text-[10px] font-bold text-[#464555]">
-                                  {task.tag}
+                            <button
+                              type="button"
+                              onClick={() => onSelectTask(task)}
+                              aria-label={`Open task ${task.code}: ${task.title}`}
+                              className="w-full text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]"
+                            >
+                              <div className="flex items-center justify-between mb-2">
+                                {task.tag && (
+                                  <span className="px-1.5 py-0.5 rounded bg-[#eaedff] font-['JetBrains_Mono'] text-[10px] font-bold text-[#464555]">
+                                    {task.tag}
+                                  </span>
+                                )}
+                                <span className="font-['JetBrains_Mono'] text-[11px] text-[#464555]">
+                                  {task.code}
                                 </span>
-                              )}
-                              <span className="font-['JetBrains_Mono'] text-[11px] text-[#464555]">
-                                {task.code}
-                              </span>
-                            </div>
+                              </div>
 
-                            <p className="text-xs sm:text-sm font-semibold text-[#131b2e] group-hover:text-[#3525cd] transition-colors leading-snug">
-                              {task.title}
-                            </p>
-
-                            {task.description && (
-                              <p className="text-[11px] text-[#464555] mt-1 line-clamp-2">
-                                {task.description}
+                              <p className="text-xs sm:text-sm font-semibold text-[#131b2e] group-hover:text-[#3525cd] transition-colors leading-snug">
+                                {task.title}
                               </p>
-                            )}
+
+                              {task.description && (
+                                <p className="text-[11px] text-[#464555] mt-1 line-clamp-2">
+                                  {task.description}
+                                </p>
+                              )}
+                            </button>
 
                             <div className="mt-3 flex items-center justify-between pt-2 border-t border-[#f2f3ff]">
                               <div className="flex items-center gap-1">
                                 {col.id !== 'backlog' && (
                                   <button
                                     title="Move left"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
+                                    onClick={() => {
                                       const prevMap: Record<
                                         TaskStatus,
                                         TaskStatus
@@ -334,8 +339,7 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                                 {col.id !== 'done' && (
                                   <button
                                     title="Move right"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
+                                    onClick={() => {
                                       const nextMap: Record<
                                         TaskStatus,
                                         TaskStatus
@@ -402,7 +406,7 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                 </span>
               </div>
 
-              <div className="prose prose-slate max-w-none text-sm leading-relaxed text-[#464555] flex flex-col gap-4">
+              <div className="text-sm leading-relaxed text-[#464555] flex flex-col gap-4">
                 <p>
                   This document serves as the unified technical specification
                   for the upcoming billing v2 migration and public API

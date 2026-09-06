@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -12,18 +12,8 @@ import {
   Plus,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { TaskItem, Project } from '@/types';
 
 interface HeroProps {
-  tasks: TaskItem[];
-  projects: Project[];
-  activeProjectId: string;
-  onSelectProject: (projectId: string) => void;
-  activeView: string;
-  onSelectView: (view: string) => void;
-  onOpenCommandPalette: () => void;
-  onOpenNewTaskModal: () => void;
-  onSelectTask: (task: TaskItem) => void;
   onOpenVideoTour: () => void;
   onOpenWorkspace: () => void;
 }
@@ -93,7 +83,7 @@ function KanbanBoardGraphic() {
       </defs>
 
       <rect x="12" y="10" width="208" height="446" rx="12" fill="#f3f4ff" />
-      <circle cx="30" cy="32" r="5" fill="#777587" />
+      <circle cx="30" cy="32" r="5" fill="#666577" />
       <text x="42" y="37" fontSize="12" fontWeight="700" fill="#131b2e">
         To Do
       </text>
@@ -112,7 +102,7 @@ function KanbanBoardGraphic() {
         textAnchor="middle"
         fontSize="11"
         fontWeight="700"
-        fill="#777587"
+        fill="#666577"
         style={{ fontFamily: 'JetBrains Mono, monospace' }}
       >
         3
@@ -136,7 +126,7 @@ function KanbanBoardGraphic() {
         y="74"
         textAnchor="end"
         fontSize="10"
-        fill="#777587"
+        fill="#666577"
         style={{ fontFamily: 'JetBrains Mono, monospace' }}
       >
         NOV-104
@@ -164,7 +154,7 @@ function KanbanBoardGraphic() {
         x="28"
         y="155"
         fontSize="10.5"
-        fill="#777587"
+        fill="#666577"
         style={{ fontFamily: 'JetBrains Mono, monospace' }}
       >
         Today
@@ -199,7 +189,7 @@ function KanbanBoardGraphic() {
         y="196"
         textAnchor="end"
         fontSize="10"
-        fill="#777587"
+        fill="#666577"
         style={{ fontFamily: 'JetBrains Mono, monospace' }}
       >
         NOV-108
@@ -360,7 +350,7 @@ function KanbanBoardGraphic() {
         y="214"
         textAnchor="end"
         fontSize="10"
-        fill="#777587"
+        fill="#666577"
         style={{ fontFamily: 'JetBrains Mono, monospace' }}
       >
         NOV-114
@@ -598,8 +588,17 @@ export const Hero: React.FC<HeroProps> = ({
         <motion.div variants={itemVariants}>
           <div
             id="hero-announcement-pill"
+            role="button"
+            tabIndex={0}
             onClick={onOpenWorkspace}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#eaedff]/80 backdrop-blur-md shadow-xs mb-6 group cursor-pointer transition-all hover:bg-[#dae2fd] border border-[#c7c4d8]/40"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onOpenWorkspace();
+              }
+            }}
+            aria-label="Open the Novi workspace to explore a live demo"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#eaedff]/80 backdrop-blur-md shadow-xs mb-6 group cursor-pointer transition-all hover:bg-[#dae2fd] border border-[#c7c4d8]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]"
           >
             <span className="w-2 h-2 rounded-full bg-[#3525cd] animate-pulse" />
             <span className="text-xs sm:text-sm text-[#3525cd] font-semibold tracking-wide">
@@ -702,8 +701,8 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               </div>
 
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-[#eaedff] text-xs text-[#777587] w-56 shadow-2xs">
-                <Search className="w-3.5 h-3.5 text-[#777587]" />
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-[#eaedff] text-xs text-[#666577] w-56 shadow-2xs">
+                <Search className="w-3.5 h-3.5 text-[#666577]" />
                 <span className="truncate">Search tasks & docs...</span>
                 <span className="ml-auto font-['JetBrains_Mono'] text-[10px] px-1.5 py-0.5 rounded bg-[#eaedff] text-[#464555]">
                   ⌘K
@@ -757,7 +756,16 @@ export const Hero: React.FC<HeroProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
             onClick={onOpenWorkspace}
-            className="absolute -top-5 -right-3 md:-right-6 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-[0_12px_32px_rgba(19,27,46,0.14)] hidden sm:flex items-center gap-3 z-20 max-w-xs border border-[#eaedff] cursor-pointer hover:scale-105 transition-transform"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onOpenWorkspace();
+              }
+            }}
+            aria-label="Open the Novi workspace"
+            className="absolute -top-5 -right-3 md:-right-6 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-[0_12px_32px_rgba(19,27,46,0.14)] hidden sm:flex items-center gap-3 z-20 max-w-xs border border-[#eaedff] cursor-pointer hover:scale-105 transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]"
           >
             <div className="w-9 h-9 rounded-full bg-[#005338] flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-xs">
               <Check className="w-5 h-5 stroke-[2.5]" />
@@ -780,7 +788,16 @@ export const Hero: React.FC<HeroProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.0 }}
             onClick={onOpenWorkspace}
-            className="absolute -bottom-6 -left-3 md:-left-6 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-[0_12px_32px_rgba(19,27,46,0.14)] hidden sm:flex items-center gap-3 z-20 max-w-sm border border-[#eaedff] cursor-pointer hover:scale-105 transition-transform"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onOpenWorkspace();
+              }
+            }}
+            aria-label="Open the Novi workspace"
+            className="absolute -bottom-6 -left-3 md:-left-6 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-[0_12px_32px_rgba(19,27,46,0.14)] hidden sm:flex items-center gap-3 z-20 max-w-sm border border-[#eaedff] cursor-pointer hover:scale-105 transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]"
           >
             <div className="w-8 h-8 rounded-lg bg-[#eaedff] flex items-center justify-center text-[#3525cd] shrink-0">
               <MessageSquare className="w-4 h-4" />
@@ -818,6 +835,8 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
             <div className="w-20 h-8 flex items-end">
               <svg
+                aria-hidden="true"
+                focusable="false"
                 className="w-full h-full text-[#005338]"
                 fill="none"
                 viewBox="0 0 80 32"

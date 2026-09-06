@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #3525cd;
@@ -36,10 +36,12 @@
   --color-on-background: #131b2e;
   --color-surface-variant: #dae2fd;
 
-  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-headline: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-code: "JetBrains Mono", monospace;
+  --font-display:
+    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline:
+    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
 }
 
 @layer base {
@@ -63,4 +65,3 @@
   direction: ltr;
   vertical-align: middle;
 }
-

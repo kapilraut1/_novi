@@ -19,6 +19,8 @@ interface NavbarProps {
 const FOCUS_RING =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3525cd]';
 
+const DESKTOP_NAV_BREAKPOINT_PX = 1024;
+
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenWorkspace,
   onOpenAuth,
@@ -69,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   useEffect(() => {
     if (!isOpen) return;
     const handleResize = () => {
-      if (window.innerWidth >= 768) close();
+      if (window.innerWidth >= DESKTOP_NAV_BREAKPOINT_PX) close();
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -105,34 +107,34 @@ export const Navbar: React.FC<NavbarProps> = ({
       >
         Skip to content
       </a>
-      <div className="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
+      <div className="h-14 sm:h-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
           <a
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
               onNavigateSection('hero');
             }}
-            className={`flex items-center gap-2 group cursor-pointer ${FOCUS_RING}`}
+            className={`flex items-center gap-2 group cursor-pointer min-w-0 ${FOCUS_RING}`}
             id="brand-logo-nav"
           >
             <Image
               alt="Novi Brand Logo"
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-7 w-auto sm:h-8 object-contain transition-transform group-hover:scale-105 shrink-0"
               height={64}
               priority
               src={NOVI_LOGO_URL}
               unoptimized
               width={64}
             />
-            <span className="font-['Plus_Jakarta_Sans'] font-bold text-xl text-[#131b2e] tracking-tight">
+            <span className="font-['Plus_Jakarta_Sans'] font-bold text-lg sm:text-xl text-[#131b2e] tracking-tight hidden sm:block truncate">
               Novi
             </span>
           </a>
         </div>
 
         <nav
-          className="hidden md:flex items-center gap-1"
+          className="hidden lg:flex items-center gap-0.5 xl:gap-1 min-w-0"
           aria-label="Main Navigation"
         >
           {navItems.map((item) => {
@@ -143,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 type="button"
                 id={`nav-link-${item.id}`}
                 onClick={() => onNavigateSection(item.id)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${FOCUS_RING} ${
+                className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer whitespace-nowrap ${FOCUS_RING} ${
                   isActive
                     ? 'bg-surface-container-high text-[#131b2e] font-semibold shadow-xs'
                     : 'text-on-surface-variant hover:bg-surface-container/70 hover:text-[#131b2e]'
@@ -155,13 +157,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <Button
             id="nav-login-btn"
             variant="secondary"
             size="md"
             onClick={() => onOpenAuth('login')}
-            className="shadow-xs group"
+            className="hidden sm:inline-flex shadow-xs group"
           >
             <span>Login</span>
           </Button>
@@ -171,8 +173,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onOpenWorkspace}
             className={`shadow-[0_4px_14px_rgba(53,37,205,0.25)] hover:shadow-[0_6px_20px_rgba(53,37,205,0.35)] active:scale-[0.98] ${FOCUS_RING}`}
           >
-            <span>{isWorkspaceOpen ? 'Back to Overview' : 'Start free'}</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="whitespace-nowrap">
+              {isWorkspaceOpen ? 'Back to Overview' : 'Start free'}
+            </span>
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </Button>
 
           <button
@@ -180,7 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             id="nav-profile-toggle"
             onClick={onOpenWorkspace}
             title="Open Calm Workspace"
-            className={`w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high hover:ring-2 hover:ring-secondary-container transition-all cursor-pointer shadow-2xs ${FOCUS_RING}`}
+            className={`hidden sm:flex w-9 h-9 rounded-full bg-surface-container text-primary items-center justify-center hover:bg-surface-container-high hover:ring-2 hover:ring-secondary-container transition-all cursor-pointer shadow-2xs shrink-0 ${FOCUS_RING}`}
           >
             <User className="w-4 h-4" />
           </button>
@@ -196,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-haspopup="dialog"
             aria-controls="mobile-nav-dialog"
             onClick={toggle}
-            className={`md:hidden inline-flex items-center justify-center p-2 rounded-lg text-[#464555] hover:bg-[#eaedff] hover:text-[#131b2e] transition-colors cursor-pointer ${FOCUS_RING}`}
+            className={`lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-[#464555] hover:bg-[#eaedff] hover:text-[#131b2e] transition-colors cursor-pointer shrink-0 ${FOCUS_RING}`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -217,7 +221,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden origin-top overflow-hidden border-t border-surface-container bg-white/95 backdrop-blur-xl shadow-lg"
+            className="lg:hidden origin-top overflow-hidden border-t border-surface-container bg-white/95 backdrop-blur-xl shadow-lg max-h-[calc(100dvh-3.5rem)] overflow-y-auto"
           >
             <div className="px-4 py-4 flex flex-col gap-1.5">
               {navItems.map((item) => {
@@ -257,7 +261,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onOpenWorkspace();
                     close();
                   }}
-                  className={`gap-2 shadow-sm ${FOCUS_RING}`}
+                  className={`gap-2 shadow-sm ${FOCUS_RING} `}
                 >
                   <span>Start free</span>
                   <ArrowRight className="w-4 h-4" />

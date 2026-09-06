@@ -24,15 +24,15 @@ The implementation goes beyond the core landing page requirements by introducing
 
 ## Requirements Coverage
 
-| Requirement | Implementation |
-| --- | --- |
-| Navigation | Responsive navigation with links, CTA, and animated mobile menu |
-| Hero Section | Headline, supporting text, CTAs, animations, and product-inspired visual |
-| Feature Section | Four feature cards highlighting Novi's core capabilities |
-| Footer | Navigation groups, newsletter signup, social links, and legal links |
-| Responsiveness | Optimized layouts for mobile, tablet, and desktop |
-| Interactions | Interactive workspace, command palette, modals, buttons, and animations |
-| Accessibility | Keyboard support, focus states, semantic HTML, accessible dialogs, and reduced motion support |
+| Requirement     | Implementation                                                                                |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| Navigation      | Responsive navigation with links, CTA, and animated mobile menu                               |
+| Hero Section    | Headline, supporting text, CTAs, animations, and product-inspired visual                      |
+| Feature Section | Four feature cards highlighting Novi's core capabilities                                      |
+| Footer          | Navigation groups, newsletter signup, social links, and legal links                           |
+| Responsiveness  | Optimized layouts for mobile, tablet, and desktop                                             |
+| Interactions    | Interactive workspace, command palette, modals, buttons, and animations                       |
+| Accessibility   | Keyboard support, focus states, semantic HTML, accessible dialogs, and reduced motion support |
 
 ---
 
@@ -121,3 +121,4 @@ git clone https://github.com/kapilraut1/_novi.git
 cd _novi
 npm install
 npm run dev
+```

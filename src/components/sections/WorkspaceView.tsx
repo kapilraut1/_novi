@@ -52,7 +52,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
 
   return (
     <div className="min-h-screen bg-[#faf8ff] text-[#131b2e] flex flex-col font-['Inter']">
-      {/* Top Workspace Bar */}
       <header className="h-14 bg-white border-b border-[#eaedff] px-4 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-2xs">
         <div className="flex items-center gap-3">
           <button
@@ -87,7 +86,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
           </Badge>
         </div>
 
-        {/* Global Search & Command trigger */}
         <div className="flex items-center gap-2">
           <button
             onClick={onOpenCommandPalette}
@@ -121,11 +119,8 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
         </div>
       </header>
 
-      {/* Main split view */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Left Sidebar */}
         <aside className="w-60 bg-white border-r border-[#eaedff] p-4 flex flex-col gap-6 shrink-0 hidden md:flex">
-          {/* Projects */}
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#464555] text-[11px] uppercase tracking-wider font-bold px-2 mb-1">
               <span>Projects</span>
@@ -166,7 +161,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             })}
           </div>
 
-          {/* Views */}
           <div className="flex flex-col gap-1">
             <div className="text-[#464555] text-[11px] uppercase tracking-wider font-bold px-2 mb-1">
               Views
@@ -207,7 +201,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             })}
           </div>
 
-          {/* Calming Quote */}
           <div className="mt-auto p-3 rounded-xl bg-[#f2f3ff] border border-[#eaedff] text-xs text-[#464555]">
             <p className="italic">
               “Calmness is not a luxury; it is the prerequisite for velocity.”
@@ -218,12 +211,9 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
           </div>
         </aside>
 
-        {/* Workspace Main Panel */}
         <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
-          {/* View: BOARD */}
           {activeView === 'board' && (
             <div className="flex flex-col gap-5">
-              {/* Filter and View Controls Bar */}
               <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3 rounded-xl border border-[#eaedff] shadow-2xs">
                 <div className="flex items-center gap-2 flex-1 min-w-[220px]">
                   <span className="material-symbols-outlined text-[#777587] text-[18px]">
@@ -246,7 +236,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                   )}
                 </div>
 
-                {/* Tag Pills */}
                 <div className="flex items-center gap-1 overflow-x-auto">
                   {['ALL', 'INFRA', 'DESIGN', 'GROWTH', 'CORE'].map((t) => (
                     <button
@@ -264,7 +253,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                 </div>
               </div>
 
-              {/* 4 Kanban Columns */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {columns.map((col) => {
                   const colTasks = filteredTasks.filter(
@@ -275,7 +263,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                       key={col.id}
                       className="bg-[#f2f3ff]/60 rounded-2xl p-3 border border-[#eaedff] flex flex-col gap-3 min-h-[450px]"
                     >
-                      {/* Col Header */}
                       <div className="flex items-center justify-between px-2 pt-1">
                         <span className="text-xs font-bold text-[#131b2e] flex items-center gap-2">
                           <span
@@ -288,7 +275,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                         </span>
                       </div>
 
-                      {/* Card list */}
                       <div className="flex flex-col gap-2.5 flex-1">
                         {colTasks.map((task) => (
                           <div
@@ -317,7 +303,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                               </p>
                             )}
 
-                            {/* Quick Column Shift Buttons on Hover */}
                             <div className="mt-3 flex items-center justify-between pt-2 border-t border-[#f2f3ff]">
                               <div className="flex items-center gap-1">
                                 {col.id !== 'backlog' && (
@@ -385,7 +370,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
                         ))}
                       </div>
 
-                      {/* Add button inside column */}
                       <button
                         onClick={onOpenNewTaskModal}
                         className="w-full py-2 rounded-lg text-xs font-semibold text-[#464555] hover:text-[#3525cd] hover:bg-white transition-colors flex items-center justify-center gap-1"
@@ -402,7 +386,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             </div>
           )}
 
-          {/* View: DOCS */}
           {activeView === 'docs' && (
             <div className="max-w-4xl mx-auto bg-white rounded-2xl p-6 sm:p-8 border border-[#eaedff] shadow-xs text-left">
               <div className="flex items-center justify-between pb-4 border-b border-[#eaedff] mb-6">
@@ -447,7 +430,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             </div>
           )}
 
-          {/* View: TIMELINE */}
           {activeView === 'timeline' && (
             <div className="bg-white rounded-2xl p-6 border border-[#eaedff] shadow-xs text-left">
               <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#131b2e] mb-4">
@@ -476,7 +458,6 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             </div>
           )}
 
-          {/* View: THREADS */}
           {activeView === 'threads' && (
             <div className="max-w-2xl mx-auto bg-white rounded-2xl p-6 border border-[#eaedff] shadow-xs text-left">
               <div className="flex items-center gap-2 pb-3 border-b border-[#eaedff] mb-4">

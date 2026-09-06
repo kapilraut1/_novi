@@ -72,9 +72,7 @@ export const IntegrationsSection: React.FC = () => {
           bi-directional syncing.
         </p>
 
-        {/* Central Ecosystem Graphic */}
         <div className="relative w-full max-w-4xl py-8 flex items-center justify-center">
-          {/* Subtle connecting lines behind */}
           <div className="hidden md:block absolute inset-0 pointer-events-none">
             <svg className="w-full h-full text-[#c7c4d8]/50" fill="none">
               <line
@@ -134,7 +132,6 @@ export const IntegrationsSection: React.FC = () => {
             </svg>
           </div>
 
-          {/* Central Hub Node */}
           <div className="z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-[#3525cd] text-white flex flex-col items-center justify-center shadow-[0_12px_36px_rgba(53,37,205,0.4)] ring-8 ring-white transition-transform hover:scale-105">
             <Image
               alt="Novi Logo"
@@ -149,9 +146,7 @@ export const IntegrationsSection: React.FC = () => {
             </span>
           </div>
 
-          {/* Radiating Integrations Orbit Grid */}
           <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
-            {/* Left Column Nodes */}
             <div className="flex flex-col gap-4 sm:gap-8 pointer-events-auto">
               {integrationsLeft.map((item) => (
                 <button
@@ -184,7 +179,6 @@ export const IntegrationsSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Right Column Nodes */}
             <div className="flex flex-col gap-4 sm:gap-8 pointer-events-auto">
               {integrationsRight.map((item) => (
                 <button
@@ -219,7 +213,6 @@ export const IntegrationsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Selected info toast */}
         {selectedIntegration && (
           <div className="mt-8 px-4 py-2.5 rounded-xl bg-white shadow-md border border-[#eaedff] text-xs sm:text-sm text-[#131b2e] animate-in fade-in flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#005338] animate-ping" />

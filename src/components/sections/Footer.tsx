@@ -169,6 +169,7 @@ export const Footer: React.FC = () => {
               >
                 Careers
                 <Badge className="ml-1.5 bg-[#dcfce7] text-[#005338] text-[10px] font-bold">
+                  <span className="w-1 h-1 rounded-full bg-[#005338] animate-ping" />
                   Hiring
                 </Badge>
               </a>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight, User } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { useFocusTrap } from '@/lib/use-focus-trap';
 import { NOVI_LOGO_URL } from '@/lib/data/initial-data';
@@ -129,9 +128,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               Novi
             </span>
           </a>
-          <Badge className="hidden sm:inline-flex bg-surface-container font-['JetBrains_Mono'] text-xs text-on-surface-variant border border-outline-variant/40">
-            v2.4
-          </Badge>
         </div>
 
         <nav
@@ -158,7 +154,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right CTA Actions */}
         <div className="flex items-center gap-3">
           <button
             type="button"

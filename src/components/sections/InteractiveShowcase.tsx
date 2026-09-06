@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/Button';
-import { TaskItem, ConversationMessage } from '@/types';
+import { ConversationMessage } from '@/types';
 import { INITIAL_MESSAGES } from '@/lib/data/initial-data';
 
 export const InteractiveShowcase: React.FC = () => {
@@ -73,7 +73,6 @@ export const InteractiveShowcase: React.FC = () => {
       id="preview"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        {/* Header */}
         <div className="text-center max-w-2xl mb-8 sm:mb-12">
           <span className="text-xs uppercase tracking-wider text-[#3525cd] font-bold">
             Interactive Preview

@@ -123,12 +123,12 @@ export default function Page() {
     }
   };
 
-  const handleOpenAuth = (mode: 'login' | 'signup') => {
+  const handleOpenAuth = () => {
     setIsWorkspaceOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-[#faf8ff] text-[#131b2e] selection:bg-[#3525cd] selection:text-white flex flex-col font-['Inter']">
+    <div className="min-h-screen bg-[#faf8ff] text-[#131b2e] selection:bg-primary selection:text-white flex flex-col font-['Inter']">
       {isWorkspaceOpen ? (
         <WorkspaceView
           tasks={tasks}

@@ -17,7 +17,6 @@ export const WorkflowSection: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
-        {/* Step 1 */}
         <div className="flex flex-col p-6 sm:p-8 bg-white rounded-2xl shadow-xs hover:shadow-lg border border-[#eaedff] transition-all relative group hover:border-[#8792fe]">
           <div className="flex items-center justify-between mb-6">
             <span className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl text-[#3525cd]/30 font-black">
@@ -44,7 +43,6 @@ export const WorkflowSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Step 2 */}
         <div className="flex flex-col p-6 sm:p-8 bg-white rounded-2xl shadow-xs hover:shadow-lg border border-[#eaedff] transition-all relative group hover:border-[#8792fe]">
           <div className="flex items-center justify-between mb-6">
             <span className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl text-[#4953bc]/30 font-black">
@@ -71,7 +69,6 @@ export const WorkflowSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Step 3 */}
         <div className="flex flex-col p-6 sm:p-8 bg-white rounded-2xl shadow-xs hover:shadow-lg border border-[#eaedff] transition-all relative group hover:border-[#8792fe]">
           <div className="flex items-center justify-between mb-6">
             <span className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl text-[#005338]/30 font-black">

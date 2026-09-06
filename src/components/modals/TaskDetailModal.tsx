@@ -23,7 +23,6 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
         className="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-[#eaedff] p-6 text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#eaedff]">
           <div className="flex items-center gap-2">
             <span className="font-['JetBrains_Mono'] text-xs font-bold text-[#3525cd] px-2 py-0.5 rounded bg-[#eaedff]">
@@ -45,7 +44,6 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           </IconButton>
         </div>
 
-        {/* Title & Description */}
         <div className="mt-4">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#131b2e]">
             {task.title}
@@ -56,7 +54,6 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           </p>
         </div>
 
-        {/* Status Switcher Buttons */}
         <div className="mt-6">
           <label className="block text-xs font-bold text-[#464555] uppercase tracking-wider mb-2">
             Move to Column
@@ -89,7 +86,6 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Assignee & Meta */}
         <div className="mt-6 p-4 rounded-xl bg-[#f2f3ff]/60 border border-[#eaedff] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
@@ -113,7 +109,6 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Action bar */}
         <div className="mt-6 pt-4 border-t border-[#eaedff] flex items-center justify-between">
           <button
             onClick={() => {

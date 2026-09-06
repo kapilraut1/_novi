@@ -57,7 +57,6 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
         className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#eaedff] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="bg-[#131b2e] text-white p-6 sm:p-8 relative">
           <IconButton
             label="Close video tour"
@@ -78,7 +77,6 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
           </p>
         </div>
 
-        {/* Step Content */}
         <div className="p-6 sm:p-8">
           <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#f2f3ff] border border-[#eaedff] mb-6">
             <div className="w-12 h-12 rounded-xl bg-[#3525cd] text-white flex items-center justify-center shrink-0 shadow-md">
@@ -107,7 +105,6 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
             </div>
           </div>
 
-          {/* Stepper Dots */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               {tourSteps.map((_, idx) => (

@@ -56,7 +56,6 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
       dueDate: 'Nov 12',
     });
 
-    // Reset
     setTitle('');
     setDescription('');
     onClose();

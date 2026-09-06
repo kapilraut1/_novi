@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
+import './globals.css';
+
 export const metadata: Metadata = {
-  title: 'Novi | A modern workspace ',
+  title: 'Novi | A modern workspace and task maanagement tool',
   description:
     'Novi brings tasks, docs, and conversations into one calm workspace built for small, fast moving teams.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +31,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#faf8ff] text-[#131b2e] antialiased selection:bg-[#3525cd] selection:text-white">
+      <body className="bg-[#faf8ff] text-[#131b2e] antialiased selection:bg-primary selection:text-white">
         {children}
       </body>
     </html>

@@ -24,7 +24,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 }) => {
   const [query, setQuery] = useState('');
 
-  // Keyboard shortcut listener for Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -83,7 +82,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-[#c7c4d8]/60 overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Search Input Bar */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#eaedff]">
           <span className="material-symbols-outlined text-[#3525cd] text-[22px]">
             search
@@ -104,9 +102,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           </button>
         </div>
 
-        {/* Results List */}
         <div className="max-h-96 overflow-y-auto p-2 flex flex-col gap-1">
-          {/* Quick Actions */}
           <div className="px-3 py-1.5 text-[11px] font-bold text-[#464555] uppercase tracking-wider">
             Quick Actions
           </div>
@@ -126,7 +122,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </span>
           </button>
 
-          {/* Navigation */}
           {navigationCommands.length > 0 && (
             <>
               <div className="px-3 py-1.5 mt-2 text-[11px] font-bold text-[#464555] uppercase tracking-wider">
@@ -150,7 +145,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </>
           )}
 
-          {/* Matching Tasks */}
           {filteredTasks.length > 0 && (
             <>
               <div className="px-3 py-1.5 mt-2 text-[11px] font-bold text-[#464555] uppercase tracking-wider">
@@ -181,7 +175,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </>
           )}
 
-          {/* Projects */}
           <div className="px-3 py-1.5 mt-2 text-[11px] font-bold text-[#464555] uppercase tracking-wider">
             Switch Project
           </div>
@@ -206,7 +199,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           ))}
         </div>
 
-        {/* Footer shortcuts */}
         <div className="px-4 py-2.5 bg-[#f2f3ff] border-t border-[#eaedff] flex items-center justify-between text-[11px] text-[#464555]">
           <span className="flex items-center gap-1.5">
             <kbd className="px-1 py-0.5 rounded bg-white border border-[#eaedff]">

@@ -10,7 +10,6 @@ import {
   MessageSquare,
   Search,
   Plus,
-  Calendar,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { TaskItem, Project } from '@/types';
@@ -393,7 +392,6 @@ function KanbanBoardGraphic() {
         AL
       </text>
 
-      {/* Column 3: Done */}
       <rect x="460" y="10" width="208" height="446" rx="12" fill="#f3f4ff" />
       <circle cx="478" cy="32" r="5" fill="#005338" />
       <text x="490" y="37" fontSize="12" fontWeight="700" fill="#131b2e">
@@ -472,7 +470,6 @@ function KanbanBoardGraphic() {
         Shipped in v2.4
       </text>
 
-      {/* Card 6 (Completed) */}
       <rect
         x="468"
         y="148"
@@ -623,7 +620,6 @@ export const Hero: React.FC<HeroProps> = ({
           </span>
         </motion.h1>
 
-        {/* Entrance Item 3: Supporting Subtext */}
         <motion.p
           id="hero-subline"
           variants={itemVariants}

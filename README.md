@@ -1,8 +1,22 @@
 # Novi
 
-A one-page marketing site for **Novi** — a calm, all-in-one workspace that brings tasks, docs, and conversations together for small, fast-moving teams.
+A marketing site for **Novi** — a calm, all-in-one workspace that brings tasks, docs, and conversations together for small, fast-moving teams.
 
-It ships as a fully static, server-rendered landing page with a client-side interactive workspace demo (kanban board, docs, timeline, threads) plus modals for a command palette, task management, and a video tour.
+
+## Live preview
+
+**[novi-landing.vercel.app](https://novi-teal.vercel.app/)** 
+
+## Requirements coverage
+
+| Brief requirement | Where it lives |
+| ------------------ | -------------- |
+| Nav with logo, links, "Start Free" CTA | `components/sections/Navbar.tsx` — collapses to an accessible animated mobile menu |
+| Hero: headline, subline, 2 CTAs, supporting graphic | `components/sections/Hero.tsx` — staggered entrance animation, inline SVG kanban graphic |
+| 4 feature cards (Boards, Threads, Timeline, Import) | `components/sections/Features.tsx` — scroll-triggered stagger, hover microinteractions |
+| Footer: tagline, link groups, email signup, socials, copyright | `components/sections/Footer.tsx` — Zod-validated signup with animated states |
+| Fully responsive (phone/tablet/desktop) | Mobile-first Tailwind breakpoints throughout; menu collapses, sections stack |
+| Beyond-the-brief creative direction | `InteractiveShowcase`, `WorkspaceView`, `CommandPalette`, `NewTaskModal`, `TaskDetailModal`, `VideoTourModal` |
 
 ## Tech stack
 
@@ -33,16 +47,16 @@ npm run dev          # start dev server -> http://localhost:3000
 ## Scripts
 
 | Script                 | Description                         |
-| ---------------------- | ----------------------------------- |
-| `npm run dev`          | Start the Next.js dev server        |
-| `npm run build`        | Production build (static prerender) |
-| `npm start`            | Serve the production build          |
-| `npm run lint`         | ESLint (next/core-web-vitals)       |
-| `npm run typecheck`    | `tsc --noEmit` (strict)             |
-| `npm test`             | Run Jest once                       |
-| `npm run test:watch`   | Run Jest in watch mode              |
-| `npm run format`       | Prettier write across the repo      |
-| `npm run format:check` | Prettier check across the repo      |
+| ---------------------- | ------------------------------------ |
+| `npm run dev`          | Start the Next.js dev server         |
+| `npm run build`        | Production build (static prerender)  |
+| `npm start`            | Serve the production build           |
+| `npm run lint`         | ESLint (next/core-web-vitals)        |
+| `npm run typecheck`    | `tsc --noEmit` (strict)              |
+| `npm test`             | Run Jest once                        |
+| `npm run test:watch`   | Run Jest in watch mode               |
+| `npm run format`       | Prettier write across the repo       |
+| `npm run format:check` | Prettier check across the repo       |
 
 The full verification gate is:
 
@@ -50,19 +64,21 @@ The full verification gate is:
 npm run typecheck && npm run lint && npm test && npm run build
 ```
 
+All four pass clean on this submission.
+
 ## Tests
 
 Jest runs in a jsdom environment (via `next/jest`) with module aliases mapped (`@/*` → `src/*`).
 
 | Suite                        | Covers                                                                                                                            |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `src/__tests__/navbar`       | Mobile menu open/close, `aria-expanded`, Escape + focus restore, outside-click close, nav links, navigating a menu item closes it |
 | `src/__tests__/hero`         | Headline + landmark, both CTAs fire their handlers, kanban graphic is `aria-hidden`                                               |
 | `src/__tests__/features`     | Exactly 4 cards, expected `h3` titles, section heading + kicker badge                                                             |
 | `src/__tests__/footer`       | Invalid email shows zod validation error, valid email shows success state (fetch mocked and asserted **not** called)              |
 | `src/__tests__/landing-page` | Full-page render smoke test (all sections, skip link, id anchors)                                                                 |
 
-The newsletter form is intentionally client-side only: input is validated with Zod; a valid submit shows "Successfully subscribed!" after a short simulated delay, and no network request is made.
+The newsletter form is intentionally client-side only in this build: input is validated with Zod; a valid submit shows "Successfully subscribed!" after a short simulated delay, and no network request is made. See **Why not (trade-offs)** below for the reasoning and how a real endpoint would be added.
 
 ## Folder structure
 
@@ -100,21 +116,6 @@ The newsletter form is intentionally client-side only: input is validated with Z
 ### Page flow
 
 `src/app/page.tsx` keeps all cross-section UI state (workspace open, active view/project, selected task, modal open flags) and passes handlers down. Sections are pure presentational components — they receive callbacks and data as props.
-
-## Deploy on Vercel
-
-The build is fully static (no API routes, no server actions), so deployment is one click:
-
-1. Push the repo to GitHub, GitLab, or Bitbucket.
-2. In Vercel, choose **Add New → Project** and import the repo.
-3. **Framework preset**: Next.js (auto-detected).
-   - Build command: `npm run build`
-   - Output directory: `.next`
-   - Install command: `npm install`
-4. No environment variables are required.
-5. Deploy. Each push to the main branch triggers a production deployment automatically.
-
-Deploying anywhere else that supports Next.js works the same way — there is nothing environment-specific.
 
 ## Design & technical decisions
 
@@ -158,5 +159,12 @@ Everything else (page state) lives in `page.tsx` as `useState`, because it is lo
 
 ### Why not (trade-offs)
 
-- The newsletter form is intentionally frontend-only — a real backend can be dropped in by adding an `app/api/...` route and calling it from the existing submit handler; the UI already separates the "valid submit" flow.
-- Google Fonts over `<link>` (instead of `next/font`) was chosen because Tailwind arbitrary `font-['Plus_Jakarta_Sans']` classes reference the exact family names; `next/font` would require tokenizing those references.
+- **Newsletter form is frontend-only.** Input is validated with Zod and the UI fully models loading/success/error states; the submit handler is intentionally a single seam (`handleSubscribe`) so a real backend can be dropped in later by adding an `app/api/subscribe/route.ts` and swapping the simulated delay for a `fetch` call — no UI changes required. Chosen to keep the deployed build fully static (zero cold-start latency, one-click Vercel deploy, no server config), which fit the assessment's scope better than standing up a route for a single form. Happy to walk through what the real integration would look like.
+- **Google Fonts over `<link>`** (instead of `next/font`) was chosen because Tailwind arbitrary `font-['Plus_Jakarta_Sans']` classes reference the exact family names; `next/font` would require tokenizing those references.
+- **No dark mode.** Not requested in the brief; adding it properly (theme state, `dark:` variants across every component, FOUC-safe hydration) would have traded polish on the required sections for a feature outside scope, so it was deliberately left out.
+
+## What's next if this moves forward
+
+- Wire the newsletter form to a real `/api/subscribe` route (Zod schema is already shared and ready to reuse server-side).
+- Add Storybook for the `components/ui` primitives to document variant/size props.
+- Add Playwright for end-to-end coverage of the mobile menu and modal flows on top of the existing unit tests.

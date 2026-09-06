@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react';
 import { Navbar } from '@/components/sections/Navbar';
 import { useMobileMenuStore } from '@/store/use-mobile-menu-store';
 
@@ -43,6 +49,54 @@ describe('Navbar mobile menu', () => {
     expect(
       screen.getByRole('button', { name: 'Open navigation menu' }),
     ).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('renders desktop navigation links and login/start-free actions', () => {
+    renderNavbar();
+
+    for (const label of [
+      'Product',
+      'Features',
+      'Interactive Demo',
+      'Integrations',
+      'Pricing',
+      'Docs',
+    ]) {
+      expect(
+        screen.getByRole('button', { name: label as string }),
+      ).toBeInTheDocument();
+    }
+
+    expect(
+      screen.getByRole('button', { name: 'Start free' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Login' })).toBeInTheDocument();
+  });
+
+  it('navigating a mobile menu item calls onNavigateSection and closes the menu', async () => {
+    const onNavigateSection = jest.fn();
+    render(
+      <Navbar
+        onOpenCommandPalette={noop}
+        onOpenWorkspace={noop}
+        onOpenAuth={noop}
+        onNavigateSection={onNavigateSection}
+      />,
+    );
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Open navigation menu' }),
+    );
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('button', {
+        name: 'Features',
+      }),
+    );
+
+    expect(onNavigateSection).toHaveBeenCalledWith('features');
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
   });
 
   it('closes on Escape and restores focus to the trigger', async () => {

@@ -1,0 +1,6 @@
+{
+  "name": "Novi Workspace",
+  "description": "Novi brings tasks, docs, and conversations into one calm workspace built for small, fast moving teams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

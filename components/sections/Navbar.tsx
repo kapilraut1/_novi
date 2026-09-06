@@ -100,6 +100,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-white/40 backdrop-blur-xs border-b border-transparent'
       }`}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-[#131b2e] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-[#3525cd]"
+      >
+        Skip to content
+      </a>
       <div className="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <a

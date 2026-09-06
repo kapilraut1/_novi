@@ -154,40 +154,42 @@ export default function Page() {
             isWorkspaceOpen={isWorkspaceOpen}
           />
 
-          <Hero
-            tasks={tasks}
-            projects={projects}
-            activeProjectId={activeProjectId}
-            onSelectProject={setActiveProjectId}
-            activeView={activeView}
-            onSelectView={(v) => {
-              setActiveView(v);
-              const el = document.getElementById('preview');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-            onOpenNewTaskModal={() => setIsNewTaskModalOpen(true)}
-            onSelectTask={(task) => setSelectedTask(task)}
-            onOpenVideoTour={() => setIsVideoTourOpen(true)}
-            onOpenWorkspace={() => setIsWorkspaceOpen(true)}
-          />
+          <main id="main-content" className="w-full flex flex-col">
+            <Hero
+              tasks={tasks}
+              projects={projects}
+              activeProjectId={activeProjectId}
+              onSelectProject={setActiveProjectId}
+              activeView={activeView}
+              onSelectView={(v) => {
+                setActiveView(v);
+                const el = document.getElementById('preview');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+              onOpenNewTaskModal={() => setIsNewTaskModalOpen(true)}
+              onSelectTask={(task) => setSelectedTask(task)}
+              onOpenVideoTour={() => setIsVideoTourOpen(true)}
+              onOpenWorkspace={() => setIsWorkspaceOpen(true)}
+            />
 
-          <SocialProof />
+            <SocialProof />
 
-          <Features />
+            <Features />
 
-          <InteractiveShowcase />
+            <InteractiveShowcase />
 
-          <WorkflowSection />
+            <WorkflowSection />
 
-          <IntegrationsSection />
+            <IntegrationsSection />
 
-          <FinalCta
-            onStartFree={() => setIsWorkspaceOpen(true)}
-            onContact={() => setIsVideoTourOpen(true)}
-          />
+            <FinalCta
+              onStartFree={() => setIsWorkspaceOpen(true)}
+              onContact={() => setIsVideoTourOpen(true)}
+            />
 
-          <Footer />
+            <Footer />
+          </main>
         </>
       )}
 

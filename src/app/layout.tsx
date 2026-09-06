@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-import './globals.css';
-
 export const metadata: Metadata = {
-  title: 'Novi Workspace',
+  title: 'Novi | A modern workspace ',
   description:
     'Novi brings tasks, docs, and conversations into one calm workspace built for small, fast moving teams.',
 };

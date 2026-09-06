@@ -5,7 +5,7 @@ export const subscribeSchema = z.object({
     .string()
     .trim()
     .min(1, 'Enter your email to subscribe.')
-    .email('That email does not look right — try you@company.com.'),
+    .email('Please. Enter your valid email address.'),
 });
 
 export type SubscribeInput = z.infer<typeof subscribeSchema>;

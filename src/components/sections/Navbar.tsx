@@ -155,15 +155,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            id="nav-login-btn"
+          <Button
+            id="hero-secondary-cta"
+            variant="secondary"
+            size="md"
             onClick={() => onOpenAuth('login')}
-            className={`hidden sm:inline-block text-sm font-medium text-on-surface-variant hover:text-[#131b2e] transition-colors cursor-pointer px-3 py-1.5 ${FOCUS_RING}`}
+            className="shadow-xs group"
           >
-            Log in
-          </button>
-
+            <span>Login</span>
+          </Button>
           <Button
             id="nav-start-free-btn"
             size="sm"

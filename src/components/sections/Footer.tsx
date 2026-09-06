@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 aria-label="GitHub repository"
-                href="https://github.com"
+                href="https://github.com/kapilraut1"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-xl bg-white border border-surface-container flex items-center justify-center text-[#464555] hover:text-[#3525cd] hover:border-[#8792fe] hover:shadow-xs transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[#3525cd] focus-visible:outline-offset-2"
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 aria-label="LinkedIn page"
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/kapil-raut-059916274/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-xl bg-white border border-[#eaedff] flex items-center justify-center text-[#464555] hover:text-[#3525cd] hover:border-[#8792fe] hover:shadow-xs transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[#3525cd] focus-visible:outline-offset-2"

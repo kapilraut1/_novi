@@ -10,7 +10,7 @@ The project focuses on creating a polished product experience with strong visual
 
 ## Repository
 
-🔗 **[View the source code](https://novi-teal.vercel.app/)**
+🔗 **[View the source code](https://github.com/kapilraut1/_novi/)**
 
 ---
 
